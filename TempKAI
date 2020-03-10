@@ -1,0 +1,157 @@
+img_half = cv2.imread("./assignments/Lab3_half100.png", cv2.IMREAD_GRAYSCALE)
+img_chess = cv2.imread("./assignments/Lab3_chess100.png", cv2.IMREAD_GRAYSCALE)
+
+plt.figure(figsize=(20,10))
+plt.subplot(121)
+plt.imshow(img_half, cmap = 'gray');
+plt.subplot(122)
+hist_half = cv2.calcHist([img_half], [0], None, [256], [0, 256])
+plt.plot(hist_half); plt.xlim([0, 255]); plt.grid(); plt.show();
+
+plt.figure(figsize=(20,10))
+plt.subplot(121)
+plt.imshow(img_chess, cmap = 'gray');
+plt.subplot(122)
+hist_chess = cv2.calcHist([img_chess], [0], None, [256], [0, 256])
+plt.plot(hist_chess); plt.xlim([0, 255]); plt.grid(); plt.show();
+
+plt.show();
+
+
+
+
+
+blur3 = cv2.blur(img_half, (3,3))
+blur5 = cv2.blur(img_half, (5,5))
+blur9 = cv2.blur(img_half, (9,9))
+blur15 = cv2.blur(img_half, (15,15))
+blur35 = cv2.blur(img_half, (35,35))
+
+plt.figure(figsize=(20,20))
+plt.subplot(321),plt.imshow(img_half, cmap='gray'),plt.title('Original')
+plt.xticks([]), plt.yticks([])
+plt.subplot(322),plt.imshow(blur3, cmap='gray'),plt.title('Blur 3x3')
+plt.xticks([]), plt.yticks([])
+plt.subplot(323),plt.imshow(blur5, cmap='gray'),plt.title('Blur 5x5')
+plt.xticks([]), plt.yticks([])
+plt.subplot(324),plt.imshow(blur9, cmap='gray'),plt.title('Blur 9x9')
+plt.xticks([]), plt.yticks([])
+plt.subplot(325),plt.imshow(blur15, cmap='gray'),plt.title('Blur 15x15')
+plt.xticks([]), plt.yticks([])
+plt.subplot(326),plt.imshow(blur35, cmap='gray'),plt.title('Blur 35x35')
+plt.xticks([]), plt.yticks([])
+plt.show()
+
+gblur3 = cv2.GaussianBlur(img_chess,(3,3),0)
+gblur5 = cv2.GaussianBlur(img_chess,(5,5),0)
+gblur9 = cv2.GaussianBlur(img_chess,(9,9),0)
+gblur15 = cv2.GaussianBlur(img_chess,(15,15),0)
+gblur35 = cv2.GaussianBlur(img_chess,(35,35),0)
+
+plt.figure(figsize=(20,20))
+plt.subplot(321),plt.imshow(img_chess, cmap='gray'),plt.title('Original')
+plt.xticks([]), plt.yticks([])
+plt.subplot(322),plt.imshow(gblur3, cmap='gray'),plt.title('Gaussian Blur 3x3')
+plt.xticks([]), plt.yticks([])
+plt.subplot(323),plt.imshow(gblur5, cmap='gray'),plt.title('Gaussian Blur 5x5')
+plt.xticks([]), plt.yticks([])
+plt.subplot(324),plt.imshow(gblur9, cmap='gray'),plt.title('Gaussian Blur 9x9')
+plt.xticks([]), plt.yticks([])
+plt.subplot(325),plt.imshow(gblur15, cmap='gray'),plt.title('Gaussian Blur 15x15')
+plt.xticks([]), plt.yticks([])
+plt.subplot(326),plt.imshow(gblur35, cmap='gray'),plt.title('Gausiian Blur 35x35')
+plt.xticks([]), plt.yticks([])
+plt.show()
+
+
+
+
+
+hist_half = cv2.calcHist([img_half], [0], None, [256], [0, 256])
+hist_half_blur3 = cv2.calcHist([blur3], [0], None, [256], [0, 256])
+hist_half_blur5 = cv2.calcHist([blur5], [0], None, [256], [0, 256])
+hist_half_blur9 = cv2.calcHist([blur9], [0], None, [256], [0, 256])
+hist_half_blur15 = cv2.calcHist([blur15], [0], None, [256], [0, 256])
+hist_half_blur35 = cv2.calcHist([blur35], [0], None, [256], [0, 256])
+
+hist_chess = cv2.calcHist([img_chess], [0], None, [256], [0, 256])
+hist_chess_gblur3 = cv2.calcHist([gblur3], [0], None, [256], [0, 256])
+hist_chess_gblur5 = cv2.calcHist([gblur5], [0], None, [256], [0, 256])
+hist_chess_gblur9 = cv2.calcHist([gblur9], [0], None, [256], [0, 256])
+hist_chess_gblur15 = cv2.calcHist([gblur15], [0], None, [256], [0, 256])
+hist_chess_gblur35 = cv2.calcHist([gblur35], [0], None, [256], [0, 256])
+
+plt.figure(figsize=(20,10))
+plt.subplot(121)
+plt.imshow(img_half, cmap = 'gray');
+plt.subplot(122)
+plt.plot(hist_half); plt.xlim([0, 255]); plt.grid(); plt.show();
+
+plt.figure(figsize=(20,10))
+plt.subplot(121)
+plt.imshow(blur3, cmap = 'gray');
+plt.subplot(122)
+plt.plot(hist_half_blur3); plt.xlim([0, 255]); plt.grid(); plt.show();
+
+plt.figure(figsize=(20,10))
+plt.subplot(121)
+plt.imshow(blur5, cmap = 'gray');
+plt.subplot(122)
+plt.plot(hist_half_blur5); plt.xlim([0, 255]); plt.grid(); plt.show();
+
+plt.figure(figsize=(20,10))
+plt.subplot(121)
+plt.imshow(blur9, cmap = 'gray');
+plt.subplot(122)
+plt.plot(hist_half_blur9); plt.xlim([0, 255]); plt.grid(); plt.show();
+
+plt.figure(figsize=(20,10))
+plt.subplot(121)
+plt.imshow(blur15, cmap = 'gray');
+plt.subplot(122)
+plt.plot(hist_half_blur15); plt.xlim([0, 255]); plt.grid(); plt.show();
+
+plt.figure(figsize=(20,10))
+plt.subplot(121)
+plt.imshow(blur35, cmap = 'gray');
+plt.subplot(122)
+plt.plot(hist_half_blur35); plt.xlim([0, 255]); plt.grid(); plt.show();
+
+
+
+
+plt.figure(figsize=(20,10))
+plt.subplot(121)
+plt.imshow(img_chess, cmap = 'gray');
+plt.subplot(122)
+plt.plot(hist_chess); plt.xlim([0, 255]); plt.grid(); plt.show();
+
+plt.figure(figsize=(20,10))
+plt.subplot(121)
+plt.imshow(gblur3, cmap = 'gray');
+plt.subplot(122)
+plt.plot(hist_chess_gblur3); plt.xlim([0, 255]); plt.grid(); plt.show();
+
+plt.figure(figsize=(20,10))
+plt.subplot(121)
+plt.imshow(gblur5, cmap = 'gray');
+plt.subplot(122)
+plt.plot(hist_chess_gblur5); plt.xlim([0, 255]); plt.grid(); plt.show();
+
+plt.figure(figsize=(20,10))
+plt.subplot(121)
+plt.imshow(gblur9, cmap = 'gray');
+plt.subplot(122)
+plt.plot(hist_chess_gblur9); plt.xlim([0, 255]); plt.grid(); plt.show();
+
+plt.figure(figsize=(20,10))
+plt.subplot(121)
+plt.imshow(gblur15, cmap = 'gray');
+plt.subplot(122)
+plt.plot(hist_chess_gblur15); plt.xlim([0, 255]); plt.grid(); plt.show();
+
+plt.figure(figsize=(20,10))
+plt.subplot(121)
+plt.imshow(gblur35, cmap = 'gray');
+plt.subplot(122)
+plt.plot(hist_chess_gblur35); plt.xlim([0, 255]); plt.grid(); plt.show();
